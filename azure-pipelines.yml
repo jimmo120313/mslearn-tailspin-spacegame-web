@@ -4,16 +4,16 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 
 trigger:
-- master
+- '*'
 
 pool:
-  vmImage: 'windows-latest'
+  vmImage: 'ubuntu-16.04'
+  demands:
+  - npm
 
 variables:
-  solution: '**/*.sln'
-  buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
-
+  
 steps:
 - task: NuGetToolInstaller@1
 
